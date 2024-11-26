@@ -1,5 +1,6 @@
 const prompt = require('prompt-sync')()
 
+
 let hospedeMaiorEstadia = (vetHospedes) => {
     let hospedeMaiorEst = vetHospedes[0]
     let da1 = vetHospedes[i].data.split("-").reverse().join("-");
@@ -90,6 +91,26 @@ let principal = () => {
     quartosDisponíveis(quartos)
     hospedesnoHotel(hospedes)
     hospedeMaiorEstadia(hospedes)
+
+    let principal2 = () => {
+        // vamos fazer um menu de opções
+        let hospedes = []
+        let opcao
+        do{
+            console.log(`Digite \n 1.Cadastra Hospedes \n 2.Consultar Hospdedes \n 3.Retirar Hospéde \n 4.Hospede de Maior Estadia \n 5.Sair`)
+            opcao = Number(prompt())
+            switch(opcao){
+                case 1: cadastraHospede(hospedes); break
+                case 2: hospedesnoHotel(hospedes); break
+                case 3: retiraHospede(hospedes); break
+                case 4: hospedeMaiorEstadia(hospedes); break
+                case 5: console.log('Para sair');break
+                default: console.log(`Opção inválida`)
+            }
+        }
+        while (opcao != 5)
+    }
+    
 }
 
-principal()
+principal2()
